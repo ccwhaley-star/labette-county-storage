@@ -1,0 +1,9 @@
+{
+  "name": "labette-county-storage",
+  "version": "1.0.0",
+  "description": "Labette County Storage - Affordable self storage in Parsons, Kansas",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
