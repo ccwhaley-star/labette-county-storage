@@ -15,6 +15,23 @@
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  padding: 12px 24px;
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 600;
+  border-radius: 0 0 var(--radius) var(--radius);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* --- Reset & Base --- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -260,7 +277,7 @@ ul { list-style: none; }
 
 .hero-subtitle {
   font-size: 1.15rem;
-  color: #b0b0b0;
+  color: #ccc;
   margin-bottom: 12px;
   line-height: 1.5;
 }
@@ -324,7 +341,8 @@ ul { list-style: none; }
   stroke-linejoin: round;
 }
 
-.hero-feature h2 {
+.hero-feature strong {
+  display: block;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 4px;
@@ -735,7 +753,7 @@ ul { list-style: none; }
 }
 
 .kssoa-badge {
-  height: 60px;
+  height: 80px;
   width: auto;
   border-radius: var(--radius);
 }
@@ -908,7 +926,8 @@ ul { list-style: none; }
   font-style: italic;
 }
 
-.size-card h3 {
+.size-card-label {
+  display: block;
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
