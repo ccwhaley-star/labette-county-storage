@@ -28,8 +28,11 @@ http.createServer((req, res) => {
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/html' });
-      res.end('<h1>404 Not Found</h1>');
+      const notFoundPath = path.join(ROOT, '404.html');
+      fs.readFile(notFoundPath, (err404, data404) => {
+        res.writeHead(404, { 'Content-Type': 'text/html' });
+        res.end(err404 ? '<h1>404 Not Found</h1>' : data404);
+      });
       return;
     }
     res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
