@@ -282,6 +282,21 @@ ul { list-style: none; }
   line-height: 1.5;
 }
 
+.hero-free-lock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+.hero-free-lock::before {
+  content: '\2713';
+  font-weight: 700;
+}
+
 .hero-address {
   display: block;
   font-size: 1rem;
@@ -1301,6 +1316,10 @@ ul { list-style: none; }
 
   .hero {
     padding: 48px 0;
+  }
+
+  .hero-free-lock {
+    display: none;
   }
 
   .hero h1 {
