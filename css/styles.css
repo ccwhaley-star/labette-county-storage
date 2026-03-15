@@ -1318,6 +1318,14 @@ ul { list-style: none; }
     padding: 48px 0;
   }
 
+  .kssoa-badge {
+    height: 60px;
+  }
+
+  .hero-card {
+    display: none;
+  }
+
   .hero-free-lock {
     display: none;
   }
