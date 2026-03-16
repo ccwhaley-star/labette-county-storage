@@ -13,9 +13,38 @@ if (navToggle) {
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
+      // Close any open dropdowns
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
     });
   });
 }
+
+// Nav dropdown toggle
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+
+    // Close all dropdowns first
+    document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+
+    if (!isOpen) {
+      dropdown.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+    } else {
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+    d.classList.remove('open');
+    d.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
 
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(button => {
