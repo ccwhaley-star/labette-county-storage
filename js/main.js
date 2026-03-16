@@ -5,6 +5,8 @@ const navLinks = document.querySelector('.nav-links');
 if (navToggle) {
   navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
+    const isOpen = navLinks.classList.contains('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
   });
 
   // Close nav when clicking a link
@@ -24,11 +26,15 @@ document.querySelectorAll('.faq-question').forEach(button => {
     // Close all others
     document.querySelectorAll('.faq-item.open').forEach(openItem => {
       openItem.classList.remove('open');
+      openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
     });
 
     // Toggle current
     if (!isOpen) {
       item.classList.add('open');
+      button.setAttribute('aria-expanded', 'true');
+    } else {
+      button.setAttribute('aria-expanded', 'false');
     }
   });
 });

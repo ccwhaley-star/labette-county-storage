@@ -57,6 +57,8 @@
   --max-width: 1200px;
 }
 
+.link-orange { color: var(--orange); }
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
