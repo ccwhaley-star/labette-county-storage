@@ -1,0 +1,3 @@
+# Block search engines from indexing the Netlify staging subdomain
+https://labettecountystorage.netlify.app/*
+  X-Robots-Tag: noindex
