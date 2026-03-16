@@ -1316,6 +1316,7 @@ ul { list-style: none; }
 
   .hero {
     padding: 48px 0;
+    padding-bottom: 96px;
   }
 
   .kssoa-badge {
@@ -1327,7 +1328,7 @@ ul { list-style: none; }
   }
 
   .hero-free-lock {
-    display: none;
+    display: inline-flex;
   }
 
   .hero h1 {
@@ -1340,6 +1341,7 @@ ul { list-style: none; }
 
   .hero-buttons {
     flex-direction: column;
+    gap: 24px;
   }
 
   .hero-buttons .btn {
