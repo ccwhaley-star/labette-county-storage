@@ -294,9 +294,8 @@ ul { list-style: none; }
   margin-bottom: 12px;
 }
 
-.hero-free-lock::before {
-  content: '\2713';
-  font-weight: 700;
+.hero-free-lock svg {
+  flex-shrink: 0;
 }
 
 .hero-address {
