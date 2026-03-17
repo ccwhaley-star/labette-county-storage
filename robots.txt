@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.labettecountystorage.com/sitemap.xml
+Sitemap: https://labettecountystorage.com/sitemap.xml
