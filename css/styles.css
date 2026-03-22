@@ -32,6 +32,23 @@
   top: 0;
 }
 
+/* --- Focus-Visible Styles (WCAG 2.4.7) --- */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.location-tab:focus-visible,
+.faq-question:focus-visible,
+.nav-toggle:focus-visible,
+.nav-dropdown-toggle:focus-visible,
+.phone-fab:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 4px rgba(255, 88, 41, 0.3);
+}
+
 /* --- Reset & Base --- */
 *, *::before, *::after {
   box-sizing: border-box;
