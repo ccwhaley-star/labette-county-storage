@@ -1126,6 +1126,14 @@ ul { list-style: none; }
   line-height: 1.6;
 }
 
+.section-breadcrumb {
+  padding: 16px 0 0;
+}
+
+.security-image-wrap {
+  margin-top: 2.5rem;
+}
+
 /* --- Security Page --- */
 .security-hero-img {
   width: 100%;
