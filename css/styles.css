@@ -1126,6 +1126,16 @@ ul { list-style: none; }
   line-height: 1.6;
 }
 
+/* --- Security Page --- */
+.security-hero-img {
+  width: 100%;
+  aspect-ratio: 16/7;
+  object-fit: cover;
+  object-position: 28% 42%;
+  border-radius: 12px;
+  display: block;
+}
+
 /* --- Phone FAB --- */
 .phone-fab {
   position: fixed;
