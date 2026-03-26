@@ -98,3 +98,16 @@ if (header) {
     }
   }, { passive: true });
 }
+
+
+// Phone click tracking (GA4 key event)
+document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+  el.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'phone_call', {
+        event_category: 'contact',
+        event_label: el.getAttribute('href').replace('tel:', '')
+      });
+    }
+  });
+});
