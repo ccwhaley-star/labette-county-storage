@@ -880,7 +880,7 @@ ul { list-style: none; }
   border-radius: var(--radius);
 }
 
-.footer h4 {
+.footer h3 {
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
