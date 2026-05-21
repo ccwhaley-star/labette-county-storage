@@ -11,4 +11,5 @@
 /security.html         /security               301
 /faq.html              /faq                    301
 /privacy-policy.html   /privacy-policy          301
+/terms.html            /terms                   301
 /posts/*.html          /posts/:splat           301
