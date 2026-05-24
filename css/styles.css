@@ -1644,6 +1644,12 @@ ul { list-style: none; }
     background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8));
   }
 
+  /* Memorial Day: on mobile the narrow crop trims the flag (far right of the
+     girl/dad photo), so anchor the visible window to the right to keep it. */
+  .hero-bg-img {
+    object-position: right center;
+  }
+
   .hero h1 {
     font-size: 2.2rem;
   }
