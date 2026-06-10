@@ -20,5 +20,15 @@
 /storage-near-coffeyville.html  /storage-near-coffeyville     301!
 /storage-near-joplin.html       /storage-near-joplin          301!
 
-# Blog post .html redirects (wildcard with force)
-/posts/*.html              /posts/:splat                301!
+# Blog post .html redirects
+# Wildcard (/posts/*.html) does NOT work for partial-segment .html
+# suffix matching in Netlify — splat is greedy and the rule silently
+# misses. Listed explicitly per post to ensure each one fires.
+/posts/why-storage-facility-security-matters.html       /posts/why-storage-facility-security-matters        301!
+/posts/storage-solutions-labette-county-homeowners.html /posts/storage-solutions-labette-county-homeowners  301!
+/posts/moving-to-parsons.html                           /posts/moving-to-parsons                            301!
+/posts/choosing-right-storage-unit-size.html            /posts/choosing-right-storage-unit-size             301!
+/posts/protect-belongings-kansas-humidity.html          /posts/protect-belongings-kansas-humidity           301!
+/posts/self-storage-makes-moving-easier.html            /posts/self-storage-makes-moving-easier             301!
+/posts/what-is-tenant-protection.html                   /posts/what-is-tenant-protection                    301!
+/posts/tips-storing-items-long-term.html                /posts/tips-storing-items-long-term                 301!
