@@ -1,15 +1,24 @@
 # Preserve old Wix URLs
-/locations             /                       301
-/copy-of-find-a-unit   /                       301
-/book-now              /                       301
+/locations             /                       301!
+/copy-of-find-a-unit   /                       301!
+/book-now              /                       301!
 
-# Strip .html extensions
-/index.html            /                       301
-/blog.html             /blog                   301
-/size-guide.html       /size-guide             301
-/tenant-protection.html /tenant-protection     301
-/security.html         /security               301
-/faq.html              /faq                    301
-/privacy-policy.html   /privacy-policy          301
-/terms.html            /terms                   301
-/posts/*.html          /posts/:splat           301
+# .html -> extensionless redirects
+# The trailing `!` forces the redirect even though Netlify's pretty-URLs
+# feature would otherwise silently drop these rules. Without it, every
+# .html URL serves 200 directly and Google ends up with both the .html
+# and the clean URL competing for the same content in its index.
+/index.html                /                            301!
+/blog.html                 /blog                        301!
+/size-guide.html           /size-guide                  301!
+/tenant-protection.html    /tenant-protection           301!
+/security.html             /security                    301!
+/faq.html                  /faq                         301!
+/privacy-policy.html       /privacy-policy              301!
+/terms.html                /terms                       301!
+/storage-near-chanute.html      /storage-near-chanute         301!
+/storage-near-coffeyville.html  /storage-near-coffeyville     301!
+/storage-near-joplin.html       /storage-near-joplin          301!
+
+# Blog post .html redirects (wildcard with force)
+/posts/*.html              /posts/:splat                301!
