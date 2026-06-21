@@ -415,6 +415,48 @@ ul { list-style: none; }
   flex-wrap: wrap;
 }
 
+/* Google rating chip under the hero CTAs. Subtle glass card; links out to GBP reviews. */
+.hero-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 36px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: var(--white);
+  font-size: 0.9rem;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.hero-rating:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.hero-rating svg {
+  flex-shrink: 0;
+}
+
+.hero-rating-stars {
+  color: #FBBC05;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+}
+
+.hero-rating strong {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.hero-rating-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
 .hero-card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
