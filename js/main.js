@@ -111,3 +111,15 @@ document.querySelectorAll('a[href^="tel:"]').forEach(el => {
     }
   });
 });
+
+
+// Rent click tracking (GA4 key event) — fires on rental-intent links, never on Pay/Login
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href') || '';
+  if (/\/login/i.test(href)) return;
+  if (/(\/pages\/rent|openreservation|\/reserve)/i.test(href) && typeof gtag === 'function') {
+    gtag('event', 'rent_click', { event_category: 'conversion_intent', event_label: href, transport_type: 'beacon' });
+  }
+}, true);
