@@ -922,6 +922,12 @@ ul { list-style: none; }
   border-radius: var(--radius);
 }
 
+.veteran-badge {
+  height: 92px;
+  width: auto;
+  border-radius: var(--radius);
+}
+
 .footer h3 {
   font-size: 0.9rem;
   font-weight: 700;
@@ -1782,6 +1788,10 @@ ul { list-style: none; }
 
   .kssoa-badge {
     height: 60px;
+  }
+
+  .veteran-badge {
+    height: 69px;
   }
 
   .hero-card {
