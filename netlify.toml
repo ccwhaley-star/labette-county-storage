@@ -1,0 +1,90 @@
+# Netlify configuration
+#
+# NOTE: this site also has a `_redirects` file with the bulk of its rules
+# (legacy URLs + .html -> extensionless). Netlify processes redirects declared
+# HERE first, then falls through to `_redirects`. Keep guessed/campaign paths in
+# this file and site-structure rules in `_redirects` so the two don't fight.
+
+# --- Guessed intent paths ----------------------------------------------------
+# Paths visitors and ad clicks type or link to that were never built here.
+# Confirmed 404ing on the live site; GA4 shows real (low-volume) traffic on the
+# same set at the sister Labette property. Catch them instead of losing the visit.
+
+[[redirects]]
+  from = "/storage-units"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/units"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/self-storage"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rent"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rent-now"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rent-online"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rent-storage"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/reserve"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/book-now"
+  to = "/"
+  status = 301
+
+# Rental-portal path pattern — people land here when a portal link loses its host.
+[[redirects]]
+  from = "/pages/*"
+  to = "/"
+  status = 301
+
+# Pricing lives on the homepage, not the size guide.
+[[redirects]]
+  from = "/pricing"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/rates"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/sizes"
+  to = "/size-guide"
+  status = 301
+
+# --- Campaign paths ----------------------------------------------------------
+# Mirrors the Reno fix: ad creatives sometimes use these and they were 404ing.
+[[redirects]]
+  from = "/50-off"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/promo/*"
+  to = "/"
+  status = 301
