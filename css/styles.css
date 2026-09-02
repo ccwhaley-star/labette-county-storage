@@ -2055,6 +2055,7 @@ ul { list-style: none; }
    otherwise crops to a flat sliver). */
 @media (max-width: 640px) {
   .military-banner::before {
-    background-size: 160% auto;
+    background-size: cover;
+    background-position: left center;
   }
 }
