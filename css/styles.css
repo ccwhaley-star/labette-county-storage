@@ -528,7 +528,7 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../img/american-wide-flag-on-white.png') center top / cover no-repeat;
+  background: url('../img/american-wide-flag-on-white.webp') center top / cover no-repeat;
   filter: saturate(0.5) brightness(0.5);
   z-index: 0;
 }
@@ -2057,5 +2057,31 @@ ul { list-style: none; }
   .military-banner::before {
     background-size: cover;
     background-position: left center;
+  }
+}
+
+/* 404 page — .error-content / .error-buttons had no rules, so the intro
+   and the three buttons rendered with no layout. */
+.error-content {
+  text-align: center;
+}
+.error-content p {
+  max-width: 560px;
+  margin: 0 auto 28px;
+  color: var(--gray);
+  font-size: 1.05rem;
+}
+.error-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (max-width: 640px) {
+  .error-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 320px;
+    margin: 0 auto;
   }
 }
