@@ -513,18 +513,29 @@ ul { list-style: none; }
 
 /* --- Military Banner --- */
 .military-banner {
-  /* American flag photo with a dark scrim so the text stays legible over
-     the stripes (replaces the old green gradient). */
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('../img/american-wide-flag-on-white.png') center top / cover no-repeat;
+  /* Muted, darkened flag as a tasteful textured backdrop. The image lives
+     on ::before so it can be desaturated/darkened without touching text. */
+  position: relative;
+  overflow: hidden;
+  background: #171717;
   padding: 40px 0;
   text-align: center;
   color: var(--white);
   border-top: 3px solid var(--orange);
 }
 
+.military-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../img/american-wide-flag-on-white.png') center top / cover no-repeat;
+  filter: saturate(0.5) brightness(0.5);
+  z-index: 0;
+}
+
 .military-banner-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2043,7 +2054,7 @@ ul { list-style: none; }
 /* Zoom the flag in a little on small screens (the thin mobile strip
    otherwise crops to a flat sliver). */
 @media (max-width: 640px) {
-  .military-banner {
+  .military-banner::before {
     background-size: 160% auto;
   }
 }
