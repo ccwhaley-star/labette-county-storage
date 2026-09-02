@@ -535,7 +535,8 @@ ul { list-style: none; }
 .military-banner svg {
   width: 28px;
   height: 28px;
-  fill: var(--orange);
+  fill: #fff;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7));
 }
 
 .military-banner strong {
