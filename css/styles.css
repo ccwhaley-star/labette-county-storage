@@ -516,7 +516,7 @@ ul { list-style: none; }
   /* American flag photo with a dark scrim so the text stays legible over
      the stripes (replaces the old green gradient). */
   background:
-    linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url('../img/american-wide-flag-on-white.png') center top / cover no-repeat;
   padding: 40px 0;
   text-align: center;
@@ -2038,4 +2038,12 @@ ul { list-style: none; }
 
 .legal-content strong {
   color: var(--dark);
+}
+
+/* Zoom the flag in a little on small screens (the thin mobile strip
+   otherwise crops to a flat sliver). */
+@media (max-width: 640px) {
+  .military-banner {
+    background-size: 160% auto;
+  }
 }
