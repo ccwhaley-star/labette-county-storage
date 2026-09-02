@@ -513,7 +513,11 @@ ul { list-style: none; }
 
 /* --- Military Banner --- */
 .military-banner {
-  background: linear-gradient(135deg, #2d3a2d 0%, #1a2e1a 100%);
+  /* American flag photo with a dark scrim so the text stays legible over
+     the stripes (replaces the old green gradient). */
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.55), rgba(17, 17, 17, 0.55)),
+    url('../img/american-wide-flag-on-white.png') center / cover no-repeat;
   padding: 20px 0;
   text-align: center;
   color: var(--white);
@@ -537,11 +541,13 @@ ul { list-style: none; }
 .military-banner strong {
   font-size: 1.1rem;
   color: var(--orange);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .military-banner p {
   font-size: 0.95rem;
-  color: #ccc;
+  color: #f0f0f0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* --- Section Defaults --- */
