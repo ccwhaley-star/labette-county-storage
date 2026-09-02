@@ -59,6 +59,7 @@ button:focus-visible,
 :root {
   --orange: #FF5829;
   --orange-hover: #e04a1f;
+  --orange-link: #d8431a;
   --dark: #1a1a1a;
   --darker: #111111;
   --white: #ffffff;
@@ -229,7 +230,7 @@ ul { list-style: none; }
 
 .nav-dropdown-menu a {
   display: block;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--gray);
@@ -252,7 +253,7 @@ ul { list-style: none; }
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
 }
 
 .nav-toggle span {
@@ -2084,4 +2085,38 @@ ul { list-style: none; }
     max-width: 320px;
     margin: 0 auto;
   }
+}
+
+/* Respect prefers-reduced-motion — collapse the fade-in-on-scroll and all
+   transitions/hover transforms for users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-in { opacity: 1 !important; transform: none !important; }
+}
+
+/* AA contrast for orange TEXT links on light backgrounds — #FF5829 is only
+   3.14:1 on white; #d8431a is ~4.5:1. Brand #FF5829 stays on buttons/fills. */
+.link-orange,
+.blog-post a,
+.blog-read-more,
+.blog-breadcrumb a,
+.blog-post-back:hover,
+.claim-step a,
+.protection-disclaimer a,
+.location-detail a:hover,
+.section-label,
+.protection-intro-content .section-label,
+.faq-question:hover,
+.nav-links a:hover,
+.nav-links a.active,
+.nav-dropdown-toggle:hover,
+.nav-dropdown.open .nav-dropdown-toggle,
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active {
+  color: var(--orange-link);
 }

@@ -19,6 +19,24 @@ if (navToggle) {
   });
 }
 
+// Escape closes the mobile nav drawer + any open dropdown, and returns
+// focus to the toggle (keyboard users were previously stuck).
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  if (navLinks && navLinks.classList.contains('open')) {
+    navLinks.classList.remove('open');
+    if (navToggle) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.focus();
+    }
+  }
+  document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+    d.classList.remove('open');
+    const t = d.querySelector('.nav-dropdown-toggle');
+    if (t) t.setAttribute('aria-expanded', 'false');
+  });
+});
+
 // Nav dropdown toggle
 document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
   toggle.addEventListener('click', (e) => {
