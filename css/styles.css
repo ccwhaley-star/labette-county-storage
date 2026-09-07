@@ -59,7 +59,7 @@ button:focus-visible,
 :root {
   --orange: #FF5829;
   --orange-hover: #e04a1f;
-  --orange-link: #d8431a;
+  --orange-link: #d6421a; /* 4.51:1 on white (WCAG AA for text/links) */
   --dark: #1a1a1a;
   --darker: #111111;
   --white: #ffffff;
@@ -283,12 +283,12 @@ ul { list-style: none; }
 }
 
 .btn-primary {
-  background: var(--orange);
+  background: var(--orange-link); /* 4.51:1 with white text; brand #FF5829 is only 3.14:1 on white */
   color: var(--white);
 }
 
 .btn-primary:hover {
-  background: var(--orange-hover);
+  background: #c23a15;
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(255, 88, 41, 0.3);
 }
