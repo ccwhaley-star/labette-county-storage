@@ -2222,3 +2222,24 @@ ul { list-style: none; }
   border-color: var(--orange, #FF5829);
 }
 /* === end map-facade === */
+
+
+/* === rating-stars (site-tools) ===
+   Star rows written by rating_stars.py: an inline SVG of five stars filled to
+   the exact rating by a gradient stop (4.5 = half the fifth star, 4.8 = most
+   of it), like Google's. Sized off the element's font-size: 1em tall. */
+svg.hero-rating-stars,
+svg.google-stars,
+svg.rating-stars {
+  width: 5.333em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* Unfilled part: light grey by default (stop-color attribute), translucent
+   white on the dark hero badge. */
+.hero-rating-stars .star-empty {
+  stop-color: rgba(255, 255, 255, 0.35);
+}
+/* === end rating-stars === */
