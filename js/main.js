@@ -141,3 +141,30 @@ document.addEventListener('click', (e) => {
     gtag('event', 'rent_click', { event_category: 'conversion_intent', event_label: href, transport_type: 'beacon' });
   }
 }, true);
+
+
+/* === map-facade (site-tools) ===
+   Click-to-load Google Maps: give the iframe its real src and drop the
+   placeholder. Works whether this runs in <head>, deferred, or at the end. */
+(function () {
+  function initMapFacades() {
+    document.querySelectorAll('.map-facade-load').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var wrap = btn.closest('.map-facade-wrap');
+        var iframe = wrap.querySelector('iframe[data-src]');
+        iframe.src = iframe.getAttribute('data-src');
+        iframe.removeAttribute('data-src');
+        iframe.removeAttribute('tabindex');
+        iframe.removeAttribute('aria-hidden');
+        wrap.querySelector('.map-facade').remove();
+        iframe.focus();
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMapFacades);
+  } else {
+    initMapFacades();
+  }
+})();
+/* === end map-facade === */
