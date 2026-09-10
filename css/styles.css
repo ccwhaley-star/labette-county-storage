@@ -530,7 +530,8 @@ ul { list-style: none; }
   position: absolute;
   inset: 0;
   background: url('../img/american-wide-flag-on-white.webp') center top / cover no-repeat;
-  filter: saturate(0.5) brightness(0.5);
+  /* Matched to the hero's darkness so hero + banner read as one dark band. */
+  filter: saturate(0.45) brightness(0.32);
   z-index: 0;
 }
 
@@ -553,14 +554,14 @@ ul { list-style: none; }
 
 .military-banner strong {
   font-size: 1.1rem;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,.95), 0 0 6px rgba(0,0,0,.85);
+  color: #fff; /* same as the hero h1 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .military-banner p {
   font-size: 0.95rem;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,.95), 0 0 6px rgba(0,0,0,.85);
+  color: #ccc; /* same as .hero-subtitle */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* --- Section Defaults --- */
