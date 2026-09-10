@@ -2121,3 +2121,13 @@ ul { list-style: none; }
 .nav-dropdown-menu a.active {
   color: var(--orange-link);
 }
+
+/* Inline text links must not rely on color alone (WCAG 1.4.1 / Lighthouse
+   link-in-text-block). Scoped to in-paragraph links; nav + buttons unchanged. */
+.link-orange,
+.blog-post a,
+.claim-step a,
+.protection-disclaimer a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
