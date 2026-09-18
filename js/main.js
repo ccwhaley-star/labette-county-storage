@@ -168,3 +168,23 @@ document.addEventListener('click', (e) => {
   }
 })();
 /* === end map-facade === */
+
+/* === review "Read more" toggles ===
+   Cards are rendered clamped by build-reviews.js; this expands them in place.
+   Progressive enhancement: with JS off the review is simply truncated, and the
+   full text is still in the HTML for crawlers. */
+(function () {
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.review-more');
+    if (!btn) return;
+
+    const text = btn.parentElement.querySelector('.review-text');
+    if (!text) return;
+
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    text.classList.toggle('is-clamped', expanded);
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.textContent = expanded ? 'Read more' : 'Show less';
+  });
+})();
+/* === end review toggles === */

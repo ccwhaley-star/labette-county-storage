@@ -1,0 +1,58 @@
+name: Refresh review summary
+
+# Regenerates the AI summary card in data/reviews.json, re-renders index.html,
+# and commits. Netlify picks the commit up and deploys within ~30s.
+#
+# Weekly on Monday 09:00 UTC (~3-4am Central), plus a manual trigger.
+#
+# Requires repo secret: ANTHROPIC_API_KEY
+#
+# When the Google review feed is wired up, add the fetch step ahead of the
+# summarize step - everything downstream already works off data/reviews.json.
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-reviews
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Regenerate AI summary
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/summarize-reviews.js
+
+      # Re-renders the review wall + JSON-LD and refreshes the ?v= cache-bust
+      # hashes, exactly as a local `npm run build` would.
+      - name: Rebuild site
+        run: npm run build
+
+      - name: Commit if changed
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes - nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: refresh AI review summary"
+          git push

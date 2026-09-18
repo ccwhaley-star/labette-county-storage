@@ -9,6 +9,7 @@
  * from July while main.js kept changing).
  *
  * What it does, in order:
+ *   0. data/reviews.json -> the review wall + JSON-LD in index.html (build-reviews.js)
  *   1. css/styles.css  -> css/styles.min.css   (clean-css, level 1, no URL rebasing)
  *   2. js/main.js      -> js/main.min.js       (terser, compress + mangle)
  *   3. Rewrites every  styles.min.css?v=…  and  main.min.js?v=…  reference in
@@ -28,6 +29,7 @@ const path = require('path');
 const crypto = require('crypto');
 const CleanCSS = require('clean-css');
 const { minify: terserMinify } = require('terser');
+const { buildReviews } = require('./build-reviews');
 
 const ROOT = __dirname;
 const CSS_SRC = path.join(ROOT, 'css', 'styles.css');
@@ -93,6 +95,10 @@ function bustCacheRefs(cssV, jsV) {
 }
 
 async function main() {
+  // Render data/reviews.json into index.html FIRST, so the cache-bust pass below
+  // sees the final HTML and the review wall can never ship stale.
+  const reviews = buildReviews();
+
   const css = await buildCss();
   const js = await buildJs();
 
@@ -104,6 +110,9 @@ async function main() {
     [
       `css  ${css.inBytes} -> ${css.outBytes} bytes  (v=${cssV})`,
       `js   ${js.inBytes} -> ${js.outBytes} bytes  (v=${jsV})`,
+      reviews.skipped
+        ? 'reviews  (no data/reviews.json - skipped)'
+        : `reviews  ${reviews.count} rendered into index.html${reviews.changed ? '' : ' (no change)'}`,
       `refs ${changed} HTML file(s) updated`,
       '',
       'Now commit: css/styles.min.css js/main.min.js and the updated .html files.',

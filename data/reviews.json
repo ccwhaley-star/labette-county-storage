@@ -1,0 +1,64 @@
+{
+  "_comment": "Source of truth for the review wall on index.html. Rendered into HTML by build.js (npm run build) - the site does NOT fetch this at runtime. See scripts/README-reviews.md.",
+  "place": {
+    "name": "Labette County Storage",
+    "profileUrl": "https://www.google.com/maps?cid=4908253432811854352",
+    "writeReviewUrl": "https://www.google.com/maps?cid=4908253432811854352"
+  },
+  "rating": 4.8,
+  "reviewCount": 92,
+  "source": "manual",
+  "fetchedAt": "2026-09-12",
+  "summary": {
+    "generatedAt": "2026-09-12",
+    "generatedBy": "manual",
+    "basedOn": 4,
+    "bullets": [
+      "The gated, fenced access is the most praised feature - renters repeatedly say it lets them stop worrying about their belongings.",
+      "Units and grounds are consistently described as clean and well maintained.",
+      "Renting, paying, and moving out are all called out as fast and easy, online or by phone."
+    ]
+  },
+  "reviews": [
+    {
+      "author": "Donna Carson",
+      "initials": "DC",
+      "photo": null,
+      "rating": 5,
+      "date": "2025-08-15",
+      "relativeTime": "a year ago",
+      "text": "I've been renting from this location over the years off and on. I am thrilled with now having the gated security used by the current owners. It definitely allows me the ability to rest easy that my property is protected and has security.",
+      "ownerReply": "Thank you for the kind review Donna and I'm glad we could help! - Mona"
+    },
+    {
+      "author": "Robin Ward",
+      "initials": "RW",
+      "photo": null,
+      "rating": 5,
+      "date": "2026-03-10",
+      "relativeTime": "6 months ago",
+      "text": "Great people to work with. Storage units and grounds are clean. Love that it has a security gate. Highly recommend.",
+      "ownerReply": "Thank you for the kind review. We have worked to keep the facility clean, well lit with updated security cameras."
+    },
+    {
+      "author": "Denise S.",
+      "initials": "DS",
+      "photo": null,
+      "rating": 5,
+      "date": "2026-01-20",
+      "relativeTime": "8 months ago",
+      "text": "I'm extremely pleased that it's gated. I know my belongings are safe. I have rented for 3 years and have never had any problems. My payments are automatic every month. I don't have to worry about payments.",
+      "ownerReply": null
+    },
+    {
+      "author": "Josh B.",
+      "initials": "JB",
+      "photo": null,
+      "rating": 5,
+      "date": "2026-02-14",
+      "relativeTime": "7 months ago",
+      "text": "This was a fantastic online experience for a small town storage unit company. Clean and gated area.",
+      "ownerReply": null
+    }
+  ]
+}
