@@ -2564,3 +2564,13 @@ svg.rating-stars {
   stop-color: rgba(255, 255, 255, 0.35);
 }
 /* === end rating-stars === */
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-social svg {
+  flex-shrink: 0;
+}
