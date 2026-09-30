@@ -177,7 +177,10 @@ function buildReviews() {
   const s = before.indexOf(START);
   const e = before.indexOf(END);
   if (s === -1 || e === -1) {
-    throw new Error(`index.html is missing the ${START} / ${END} markers`);
+    // The review wall is not wired into index.html yet (markers pending).
+    // Don't block the CSS/JS build on an unfinished feature — skip loudly.
+    console.warn(`reviews: index.html has no ${START} / ${END} markers - skipped`);
+    return { skipped: true };
   }
 
   let html =
