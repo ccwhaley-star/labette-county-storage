@@ -384,6 +384,18 @@ ul { list-style: none; }
   line-height: 1.5;
 }
 
+.hero-price {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+  margin: 0 0 12px;
+  letter-spacing: 0.01em;
+}
+
+.hero-price strong {
+  color: var(--orange);
+  font-size: 1.15rem;
+}
+
 .hero-free-lock {
   display: inline-flex;
   align-items: center;
