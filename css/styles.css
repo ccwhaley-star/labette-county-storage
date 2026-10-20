@@ -327,7 +327,8 @@ ul { list-style: none; }
 
 /* --- Hero --- */
 .hero {
-  background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.8));
+  /* Dark only where the copy sits; the photo reads through on the right (matches the 2400 Franklin hero). */
+  background: linear-gradient(100deg, rgba(26, 26, 26, 0.84) 0%, rgba(26, 26, 26, 0.66) 48%, rgba(26, 26, 26, 0.28) 100%);
   color: var(--white);
   padding: 80px 0;
   position: relative;
@@ -2603,4 +2604,11 @@ svg.rating-stars {
 
 .footer-social svg {
   flex-shrink: 0;
+}
+
+/* Phones stack the hero copy over the whole photo, so keep an even wash there. */
+@media (max-width: 768px) {
+  .hero {
+    background: linear-gradient(rgba(26, 26, 26, 0.74), rgba(26, 26, 26, 0.7));
+  }
 }
