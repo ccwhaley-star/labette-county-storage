@@ -1553,12 +1553,12 @@ ul { list-style: none; }
 .phone-fab {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  right: 16px;
   width: 56px;
   height: 56px;
   background: var(--orange);
   border-radius: 50%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
@@ -1588,6 +1588,15 @@ ul { list-style: none; }
   fill: var(--white);
   stroke: var(--white);
   stroke-width: 1;
+}
+
+@keyframes fab-shake {
+  0%, 90% { transform: rotate(0deg); }
+  92% { transform: rotate(12deg); }
+  94% { transform: rotate(-10deg); }
+  96% { transform: rotate(8deg); }
+  98% { transform: rotate(-4deg); }
+  100% { transform: rotate(0deg); }
 }
 
 /* --- Animations --- */
@@ -2259,6 +2268,11 @@ ul { list-style: none; }
 
   .protection-levels {
     flex-wrap: wrap;
+  }
+
+  .phone-fab {
+    display: flex;
+    animation: fab-shake 4s ease-in-out infinite;
   }
 }
 
