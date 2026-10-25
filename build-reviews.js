@@ -1,9 +1,12 @@
 /**
  * Renders data/reviews.json into index.html.
  *
- * Two targets, both delimited so this is idempotent and safe to re-run:
- *   1. the visible review wall, between <!-- reviews:start --> / <!-- reviews:end -->
- *   2. the aggregateRating + review array inside the SelfStorage JSON-LD block
+ * One target, delimited so this is idempotent and safe to re-run: the visible
+ * review wall, between <!-- reviews:start --> / <!-- reviews:end -->.
+ *
+ * No review or star markup goes into the JSON-LD (removed 2026-10-25): Google
+ * does not allow a business to mark up reviews of itself, and the rating
+ * belongs to the Google profile, where it updates on its own.
  *
  * The site ships the RENDERED HTML - nothing is fetched at runtime - so the
  * review text is in the initial payload for both crawlers and no-JS visitors.
@@ -137,37 +140,6 @@ ${cards}
       </div>`;
 }
 
-/** Swap aggregateRating + review[] inside the SelfStorage JSON-LD block. */
-function renderSchema(html, d) {
-  const blocks = [
-    ...html.matchAll(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/g),
-  ];
-  const target = blocks.find((m) => m[1].includes('"aggregateRating"'));
-  if (!target) throw new Error('no JSON-LD block with aggregateRating found');
-
-  const ld = JSON.parse(target[1]);
-  ld.aggregateRating = {
-    '@type': 'AggregateRating',
-    ratingValue: fmtRating(d.rating),
-    reviewCount: String(d.reviewCount),
-    bestRating: '5',
-    worstRating: '1',
-  };
-  ld.review = d.reviews.map((r) => ({
-    '@type': 'Review',
-    author: { '@type': 'Person', name: shortName(r.author) },
-    datePublished: r.date,
-    reviewRating: { '@type': 'Rating', ratingValue: String(r.rating), bestRating: '5' },
-    reviewBody: r.text,
-  }));
-
-  const body = JSON.stringify(ld, null, 2)
-    .split('\n')
-    .map((line, i) => (i === 0 ? line : '  ' + line))
-    .join('\n');
-  return html.replace(target[0], `<script type="application/ld+json">\n  ${body}\n  </script>`);
-}
-
 function buildReviews() {
   if (!fs.existsSync(DATA)) return { skipped: true };
 
@@ -183,9 +155,8 @@ function buildReviews() {
     return { skipped: true };
   }
 
-  let html =
+  const html =
     before.slice(0, s + START.length) + '\n' + renderWall(d) + '\n      ' + before.slice(e);
-  html = renderSchema(html, d);
 
   const changed = html !== before;
   if (changed) fs.writeFileSync(PAGE, html);
