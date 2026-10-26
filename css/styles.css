@@ -344,6 +344,14 @@ ul { list-style: none; }
   z-index: -1;
 }
 
+/* A seasonal hero photo (set by the seasonal content manager) keeps its
+   subject on the right; phones crop to the middle, so anchor it right there. */
+@media (max-width: 768px) {
+  .hero-bg-img.seasonal-hero {
+    object-position: right center;
+  }
+}
+
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
